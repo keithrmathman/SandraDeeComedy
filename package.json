@@ -9,16 +9,42 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^0.17.0",
     "expo": "~46.0.16",
+    "expo-app-loading": "^2.1.0",
+    "expo-linear-gradient": "^11.4.0",
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
+    "gulp": "^4.0.2",
+    "jquery": "^3.6.0",
+    "metro-config": "^0.73.3",
+    "prop-types": "^15.8.0",
     "react": "18.0.0",
+    "react-build-dist": "0.0.8",
     "react-dom": "18.0.0",
+    "react-images": "^1.2.0-beta.7",
+    "react-multi-carousel": "^2.6.5",
     "react-native": "0.69.6",
-    "react-native-web": "~0.18.7"
+    "react-native-grid-image-viewer": "^1.2.2",
+    "react-native-image-slider-box": "^1.1.10",
+    "react-native-lightbox": "^0.8.1",
+    "react-native-snap-carousel": "git+https://github.com/keithrmathman/react-native-snap-carousel.git",
+    "react-native-tab-view": "^3.1.1",
+    "react-native-thumbnail-video": "git+https://github.com/keithrmathman/react-native-thumbnail-video.git",
+    "react-native-timeline-flatlist": "^0.7.6",
+    "react-native-web": "~0.18.7",
+    "react-parallax": "^3.3.0",
+    "react-responsive": "^9.0.0-beta.6",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "^5.0.0",
+    "react-scroll": "^1.8.4",
+    "react-scroll-parallax": "^2.4.3",
+    "react-style-proptype": "^3.2.2",
+    "ttf-loader": "^1.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "react-native-thumbnail-video": "git+https://github.com/keithrmathman/react-native-thumbnail-video.git"
   },
   "private": true
 }

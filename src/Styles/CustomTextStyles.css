@@ -1,0 +1,71 @@
+@media screen and (max-width: 425px){
+    .kingdom {
+        color: white;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 3rem;
+        line-height: 1;
+        text-align: center;
+       }
+       .kingdom--shadow::before {
+        color: #000;
+        content: attr(data-text);
+        margin-top: 0.7rem;
+        position: absolute;
+        transform: perspective(205px) rotateX(38deg) scale(0.84);
+        z-index: -1;
+       }
+       .strikethrough {
+        text-decoration: line-through;
+       }
+       .container-style{
+           background-size:contain;
+       }
+    
+       .video-bar .more {
+        padding: 10px 32px;
+        display: inline-block;
+        vertical-align: middle;
+        font-style: normal;
+        font-family: 'GraphikBlack';
+        color: #fff;
+        font-size: 10px;
+        background: url(https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png) no-repeat right center;
+    }
+}
+
+@media screen and (min-width: 426px) {
+    
+
+.kingdom {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4rem;
+    line-height: 1;
+    text-align: center;
+   }
+   .kingdom--shadow::before {
+    color: #000;
+    content: attr(data-text);
+    margin-top: 0.7rem;
+    position: absolute;
+    transform: perspective(205px) rotateX(38deg) scale(0.84);
+    z-index: -1;
+   }
+   .strikethrough {
+    text-decoration: line-through;
+   }
+   .container-style{
+       background-size:contain;
+   }
+
+   .video-bar .more {
+    padding: 10px 32px;
+    display: inline-block;
+    vertical-align: middle;
+    font-style: normal;
+    font-family: 'GraphikBlack';
+    color: #fff;
+    font-size: 10px;
+    background: url(https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png) no-repeat right center;
+}
+}
