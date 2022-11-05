@@ -518,8 +518,8 @@ modalButtonOpen: {
     renderVideo({ item }) {
       console.log("value of this: " + this)
     return (
-      <View style={{resizeMode:'contain', paddingHorizontal:'10px',paddingVertical:'10px',aspectRatio: 1, flex: 1 / numVideoColumns}}>
-      <Thumbnail url="https://www.youtube.com/watch?v=-T2uNrBHloo" />
+      <View style={{resizeMode:'contain', paddingHorizontal:'10px', borderRadius: 15, borderColor: 'purple' , aspectRatio: 1, flex: 1 / numVideoColumns}}>
+      <Thumbnail style={{paddingVertical: '50%'}} url="https://www.youtube.com/watch?v=-T2uNrBHloo" />
       </View>
     );
   }
