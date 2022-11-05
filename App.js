@@ -23,8 +23,8 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SCREEN_WIDTH * 0.9);
 const SLIDER_1_FIRST_ITEM = 0
 const picsumImages = new Array(11).fill("http://placeimg.com/640/360/any");
-const numColumns = 4;
-const numVideoColumns = 3;
+const numColumns = 3;
+const numVideoColumns = 2;
 const timelineIcon = require('./src/assets/microphone icon.png')
 const ImageGallery = [
  "https://source.unsplash.com/1024x768/?girl",
@@ -41,7 +41,7 @@ const DATA = [
   {index:4, icon: timelineIcon, illustration: 'https://source.unsplash.com/1024x768/?water' , title: "Sandra dee at one with water.",  subtitle: "Sandra dee loves the water"},
   {index:5, icon: timelineIcon, illustration: 'https://source.unsplash.com/1024x768/?nature' , title: "Sandra dee at one with nature",  subtitle: "Sandra Dee taking a pick in Dallas, Texas"}
 ];
-
+const SandraDeeBottomImg = require("./src/assets/sandra dee events.jpg")
 //ALL CUSTOM FONTS ARE REFRENCED HERE.//
 const getFonts = () =>
 console.log("in here.")
@@ -246,7 +246,7 @@ alignSelf:'center'
     width: '100%',
     backgroundColor: 'black',
     //backgroundColor: '#430C41',
-    overflow: 'scroll',
+    //overflow: 'scroll',
    
   },
   topImage: {
@@ -936,13 +936,13 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
           }}
         />
     </View>
-    <View nativeID='photos' style={{flex: 0.13, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}}>
+    <View nativeID='photos' style={{flex: 0.23, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}}>
     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'5%'}}>PHOTOS</Text>
     <FlatList data={picsumImages} renderItem={this.renderImage} numColumns={numColumns} />;
    
 </View>
 
-<View nativeID='videos' style={{flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}}>
+<View nativeID='videos' style={{flex: 0.26, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}}>
 <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center', justifyContent:'center'}}><Text style={[!this.state.videosLT425? {fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}: {fontFamily:'Amithen', color:'white', fontSize: '35pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}]}>VIDEOS</Text>
 <Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}}></Image></View>
     <FlatList data={picsumImages} renderItem={this.renderVideo} numColumns={numVideoColumns} />;
@@ -1001,7 +1001,9 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
      </View>
     </View>
 
-    
+    <View nativeID='contact'  style={[!this.state.eventsViewMobile ? {flex: 0.0, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.0, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
+<ImageBackground style={{width: '100%', height: "90%"}} source={SandraDeeBottomImg} ></ImageBackground>
+    </View>
     <View style={{flex: 0.015, marginTop: 'auto',  textAlignVertical:'bottom', textAlign:'center',  backgroundColor:'transparent'}}>
       <Text style={this.styles.footerText}>2022. Sandra Dee, All Rights Reserved.</Text>
       <Text style={this.styles.footerText}>Website and Content Design by Keith Russell. Contact @ keithrmathman@gmail.com.</Text>
