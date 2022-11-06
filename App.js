@@ -899,7 +899,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
        </View>
      </View>
 </View>
-    <View  style={[!this.state.bioLT550 ?{ width: '98%',  alignSelf:'center', backgroundColor: 'transparent', paddingBottom: 20,   marginTop: '2%',resizeMode: 'contain' }: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+    <View  style={[!this.state.bioLT550 ?{width: '98%',  alignSelf:'center', backgroundColor: 'transparent', paddingBottom: 20,   marginTop: '25%',resizeMode: 'contain' }: {flex:0.0, height: 0,  overflow:'hidden' }]}>
 
     <ImageBackground nativeID='bio' source={require('./src/assets/Parallax Background.png')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', borderTopWidth: '3px'
     }}>
