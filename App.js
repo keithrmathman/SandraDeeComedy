@@ -10,7 +10,7 @@ import React, {Component, useState} from 'react';
 import SliderEntry from './src/components/SliderEntry';
 import * as Font from "expo-font";
 import Apploading from "expo-app-loading";
-import {Dimensions, ImageBackground, StyleSheet, Text, Image, View, Pressable, FlatList, ScrollView,TouchableOpacity, Row, Modal, TextInput, Linking} from 'react-native';
+import {Dimensions, ImageBackground, StyleSheet, Text, Image, View, Pressable, FlatList, ScrollView,TouchableOpacity, Row, Modal, TextInput, WebView} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { Thumbnail } from 'react-native-thumbnail-video';
 import {Link, Element} from 'react-scroll'
@@ -59,6 +59,7 @@ console.log("in here.")
 const EVENTS_VIEW_SIZE_CONSTRAINT_THRESHOLD = 600
 const BIO_VIEW_SIZE_CONSTRAINT_THRESHOLD = 550
 const VIDEOS_VIEW_SIZE_CONSTRAINT_THRESHOLD = 425
+const BIO_TEXT_THRESHOLD  =1200
 
 class App extends Component {
   constructor(props) {
@@ -81,12 +82,20 @@ class App extends Component {
     this.renderEventsView()
     this.renderBioView()
     this.renderVideosView()
+    this.screenLT1200()
+    document.body.style.backgroundColor = "black"
+    if(Dimensions.get('window').width > EVENTS_VIEW_SIZE_CONSTRAINT_THRESHOLD){
+      console.log("We're in Big View!")
+      document.body.style.zoom = 1.5
+    }
+
   }
 
   state = {
     enlargedImage: {},
     loading: false,
     bioLT550: false,
+    screenSizeLT1200px: false,
     videosLT425: false,
     eventsViewMobile: false,
     fontsLoaded: false,
@@ -232,7 +241,8 @@ alignSelf:'center'
     position: 'fixed', 
     zIndex: 1,
     width: '100%',
-    flex:0.1
+    flex:0.1,
+    //maxWidth: 1800
   },
   backgroundPlaceholder: {
     backgroundColor: 'white',
@@ -488,6 +498,20 @@ modalButtonOpen: {
     })
   }
 
+  screenLT1200(){
+    if(SCREEN_WIDTH < BIO_TEXT_THRESHOLD){
+      this.setState({
+        screenSizeLT1200px: true
+      })
+      return
+    }
+    
+    this.setState({
+      screenSizeLT1200px: false
+    })
+  
+  }
+
   renderBioView(){
     console.log("in function")
     if (SCREEN_WIDTH < BIO_VIEW_SIZE_CONSTRAINT_THRESHOLD ){
@@ -599,12 +623,13 @@ modalButtonOpen: {
   };
   if (this.state.fontsLoaded) {
   return (
-      <View style={{backgroundColor: 'black',  height:'550px'}}>
+      <View style={[{backgroundColor: 'black', height:6300}]}>
+         
 <View style={this.styles.background}  onLayout={this.onLayout}>
     <ScrollView contentContainerStyle={{
       flexDirection: "row",
       padding: 0,
-      marginLeft: '2%',
+      marginLeft: '2%'
      
       
   }}
@@ -743,7 +768,7 @@ modalButtonOpen: {
              </View> */}
 
       <View style={this.styles.header}>
-        <Image style={{resizeMode:'contain', height:'20%', width: '65%', alignSelf: 'center', marginTop: '2%', marginLeft:'2%', paddingVertical:'7%',  opacity: 1}} source={require('./src/assets/Sandra Dee Official Title.png')}></Image>
+        <Image style={[this.state.screenSizeLT1200px? {resizeMode:'contain', height:'20%', width: '65%', alignSelf: 'center', marginTop: '2%', marginLeft:'2%', paddingVertical:'7%',  opacity: 1}: {resizeMode:'contain', height:'20%', width: '37.5%', alignSelf: 'center', marginTop: '5%', marginLeft:'-40%', paddingVertical:'7%',  opacity: 1}]} source={require('./src/assets/Sandra Dee Official Title.png')}></Image>
         <View style={{marginLeft: '5%' ,marginTop: '10%', width: '40%'}}>
     <span class="kingdom kingdom--shadow" data-text='"ONE OF THE'>
       "ONE OF THE</span> <span class="kingdom kingdom--shadow" data-text="FUNNIEST">FUNNIEST</span><span class="kingdom kingdom--shadow" data-text="COMICS">COMICS</span>
@@ -792,7 +817,7 @@ modalButtonOpen: {
     }}>
   
   <View style={this.styles.titleContainer}>
-  <Text style={{fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '10%'}}>UPCOMING EVENTS</Text>
+  <Text style={[this.state.screenSizeLT1200px? {fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '10%'}: {fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '65pt', alignSelf:'center', marginTop: '10%'}]}>UPCOMING EVENTS</Text>
   <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>Check out one of her upcoming shows!</Text>
 
   <View style = {[this.styles.listContainer, {height:'40%', marginTop:'30%'}]}>
@@ -845,7 +870,7 @@ position:'relative'
     <View  style={this.styles.bioItem}>
      <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center'}}>BIO</Text>
      <View style={this.styles.BioTextAlt}>
-       <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'}}>
+       <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'} }>
        K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
 
 Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
@@ -857,9 +882,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
 ... and be sure to check out his new book, "Once You Go Persian..." (full of funny stories & great unsolicited advice!)
 
 *Book K-von for ZOOM or LIVE comedy shows to make it a fun & unique experience through
-       </Text>
-
-       <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'}}>
+       
        K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
 
 Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
@@ -881,9 +904,11 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
     <ImageBackground nativeID='bio' source={require('./src/assets/Parallax Background.png')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', borderTopWidth: '3px'
     }}>
     <View  style={this.styles.bioItem}>
-     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center'}}>BIO</Text>
+     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '65pt', alignSelf:'center'}}>BIO</Text>
      <View style={{width:'50%', height:'90%', marginLeft:'5%', marginVertical:'6%'}}>
-       <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'}}>
+
+      
+       <Text style={[ this.state.screenSizeLT1200px ?{fontFamily: 'Cloud', fontSize:'15px', color:'white'} : {fontFamily: 'Cloud', fontSize:'25px', color:'white'}]}>
        K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
 
 Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
@@ -895,9 +920,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
 ... and be sure to check out his new book, "Once You Go Persian..." (full of funny stories & great unsolicited advice!)
 
 *Book K-von for ZOOM or LIVE comedy shows to make it a fun & unique experience through
-       </Text>
-
-       <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'}}>
+       
        K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
 
 Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
