@@ -774,8 +774,8 @@ modalButtonOpen: {
       "ONE OF THE</span> <span class="kingdom kingdom--shadow" data-text="FUNNIEST">FUNNIEST</span><span class="kingdom kingdom--shadow" data-text="COMICS">COMICS</span>
       <span class="kingdom kingdom--shadow" data-text="YOU'LL">YOU'LL</span><span class ="kingdom kingdom--shadow strikethrough" data-text="PROBABLY" >PROBABLY </span>
        <span class="kingdom kingdom--shadow" data-text="DEFINITELY">DEFINITELY</span>
-       <span class="kingdom kingdom--shadow" data-text="EVER MEET.">EVER MEET."</span>
-<br></br><Text style={{fontSize: '15pt', color: 'gray', fontWeight: 'bold', fontFamily:'Cloud'}}>- EVERYONE WHO DIDN'T DIE FROM LAUGHTER</Text>
+       <span class="kingdom kingdom--shadow" data-text="EVER MEET.">EVER MEET." <br></br><Text style={{fontSize: '15pt', color: 'gray', fontWeight: 'bold', fontFamily:'Cloud'}}>- EVERYONE WHO DIDN'T DIE FROM LAUGHTER</Text></span>
+<br></br>
 
   </View>
 
@@ -938,26 +938,42 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
      </View>
        </ImageBackground>    
     </View>
-    <View nativeID='accomplishments' style={{width: '90%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}}>
+    <View nativeID='accomplishments' style={{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}}>
+      
+    <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
+    }}>
+   
     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', textAlign:'center'}}>Sandra Dee's Journey</Text>
     <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>A Timeline of How She Became the Comedian She Is Today!</Text>
 
+{/* <View style = {{
+        flex: 1,
+        left: 0,
+        top: 0,
+        opacity: 5,
+        backgroundColor: 'black',
+        width: '60%',
+        height: '100%'
+      }}> */}
     <Timeline
           data={this.data}
           circleSize={30}
           circleColor='gold'
           lineColor='rgb(45,156,219)'
-          timeContainerStyle={{minWidth:52, marginTop: -5}}
+          timeContainerStyle={{minWidth:52, marginTop: -5, marginLeft: '50px'}}
           innerCircle={'icon'}
           icon = {timelineIcon}
           separator={false}
-          timeStyle={{textAlign: 'center', backgroundColor:'#f87b06', color:'white', padding:5, borderRadius:13}}
-          descriptionStyle={{color:'gray'}}
+          timeStyle={{textAlign: 'center', backgroundColor:'purple', color:'white', padding:5, borderRadius:13}}
+          descriptionStyle={{color:'dark', fontWeight: 700}}
           titleStyle={{color:'white'}}
           options={{
-            style:{paddingTop:5}
+            style:{paddingTop:5, alignSelf: 'center'}
           }}
         />
+        {/* </View> */}
+               </ImageBackground>   
+
     </View>
     <View nativeID='photos' style={[!this.state.eventsViewMobile? {flex: 0.27, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}:{flex: 0.13, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'5%'}}>PHOTOS</Text>
