@@ -940,7 +940,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
     </View>
     <View nativeID='accomplishments' style={{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}}>
       
-    <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
+    <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'cover',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
     }}>
    
     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', textAlign:'center'}}>Sandra Dee's Journey</Text>
@@ -959,16 +959,16 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
           data={this.data}
           circleSize={30}
           circleColor='gold'
-          lineColor='rgb(45,156,219)'
+          lineColor='black'
           timeContainerStyle={{minWidth:52, marginTop: -5, marginLeft: '50px'}}
           innerCircle={'icon'}
           icon = {timelineIcon}
           separator={false}
-          timeStyle={{textAlign: 'center', backgroundColor:'purple', color:'white', padding:5, borderRadius:13}}
-          descriptionStyle={{color:'dark', fontWeight: 700}}
-          titleStyle={{color:'white'}}
+          timeStyle={{textAlign: 'center', backgroundColor:'#750a06', color:'white', padding:5, borderRadius:13}}
+          descriptionStyle={{fontSize: 10, color:'#750a06',backgroundColor:'white',paddingHorizontal:'3px',borderRadius:'10px', alignSelf: 'flex-start', fontWeight: 900}}
+          titleStyle={{color:'white', backgroundColor:'#750a06', borderRadius:'10px', alignSelf: 'flex-start', paddingHorizontal: '3px'}}
           options={{
-            style:{paddingTop:5, alignSelf: 'center'}
+            style:{paddingTop:5, alignSelf: 'center',}
           }}
         />
         {/* </View> */}
