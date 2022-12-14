@@ -71,7 +71,7 @@ class App extends Component {
       {time: '10/31/19', icon: timelineIcon,title: 'Won First Local Contest', description: 'Won "Best Comic In Houston" at the Secret Group Local Contest'},
       {time: '10/1/20',icon: timelineIcon, title: 'Semi-Finalist for "Best Comic In Texas"', description: 'Semi-Finalist For "Best Comic in Texas" hosted at the Improve Theatre.'},
       {time: '12/31/20', icon: timelineIcon,title: 'Texas\'s "New Year Comedy Battle" Winner', description: 'Texas\'s "New Year Comedy Battle" Winner. She won out of 64 contestants.'},
-      {time: '1/31/21',icon: timelineIcon, title: '"Battle of the Best" Recipent', description: '"Battle of the Best" Recipent at Joke Joint. Won out of 200 contestants.'}
+      {time: '1/31/21',icon: timelineIcon, title: '"Battle of the Best" Award Recipent', description: 'Won the "Battle of the Best" Contest at Joke Joint out of 200 contestants.'}
     ]
     this._renderItem = this._renderItem.bind(this)
     this.enlargeImg = this.enlargeImg.bind(this)
@@ -176,7 +176,7 @@ class App extends Component {
     backgroundColor: 'black',
     alignItems: 'center',
    marginTop: '6%',
-   marginBottom:'15%',
+  //  marginBottom:'15%',
    alignContent: 'center',
    textAlign:'center'
   },
@@ -186,7 +186,7 @@ class App extends Component {
     backgroundColor: 'black',
     alignItems: 'center',
    marginTop: '0%',
-   marginBottom:'15%',
+  //  marginBottom:'15%',
    alignContent: 'center',
    textAlign:'center',
   },
@@ -938,14 +938,15 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
      </View>
        </ImageBackground>    
     </View>
-    <View nativeID='accomplishments' style={{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}}>
+    <View nativeID='accomplishments' style={[Dimensions.width > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
       
-    <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'cover',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
+    <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
     }}>
    
-    <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', textAlign:'center'}}>Sandra Dee's Journey</Text>
+   <View style={{fontFamily:'Amithen', alignSelf:'center', resizeMode:'contain', marginTop: '5%', textAlign:'center', width: '90%'}}>
+    <Text style={{fontFamily:'Amithen', color:'white', fontSize: '300%', alignSelf:'center', textAlign:'center'}}>Sandra Dee's Journey</Text>
     <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>A Timeline of How She Became the Comedian She Is Today!</Text>
-
+    </View>
 {/* <View style = {{
         flex: 1,
         left: 0,
@@ -964,11 +965,11 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
           innerCircle={'icon'}
           icon = {timelineIcon}
           separator={false}
-          timeStyle={{textAlign: 'center', backgroundColor:'#750a06', color:'white', padding:5, borderRadius:13}}
-          descriptionStyle={{fontSize: 10, color:'#750a06',backgroundColor:'white',paddingHorizontal:'3px',borderRadius:'10px', alignSelf: 'flex-start', fontWeight: 900}}
-          titleStyle={{color:'white', backgroundColor:'#750a06', borderRadius:'10px', alignSelf: 'flex-start', paddingHorizontal: '3px'}}
+          timeStyle={{textAlign: 'center', backgroundColor:'#540675', color:'white', padding:5, borderRadius:13}}
+          descriptionStyle={{fontSize: 10, color:'#540675',backgroundColor:'white',paddingHorizontal:'3px',borderRadius:'10px', alignSelf: 'flex-start', fontWeight: 900}}
+          titleStyle={{color:'white', backgroundColor:'#540675', borderRadius:'10px', alignSelf: 'flex-start', paddingHorizontal: '3px'}}
           options={{
-            style:{paddingTop:5, alignSelf: 'center',}
+            style:{paddingTop:5, alignSelf: 'center',  marginLeft: '3%', marginTop: '0%'}
           }}
         />
         {/* </View> */}
