@@ -175,7 +175,7 @@ class App extends Component {
     flex: 0.12,
     backgroundColor: 'black',
     alignItems: 'center',
-   marginTop: '6%',
+   marginTop: '26%',
   //  marginBottom:'15%',
    alignContent: 'center',
    textAlign:'center'
@@ -734,15 +734,16 @@ modalButtonOpen: {
       >
         <Modal
         animationType="slide"
+        presentationStyle="fullScreen"
         transparent={true}
         visible={this.state.lightboxIsOpen}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
         }}>
          
-        <View style={{flex:1, padding: 40,backgroundColor:'black',alignItems: 'stretch'}}>
-        <Image source={this.state.enlargedImage.uri} style={{height: '90%', resizeMode:'contain'}}></Image>
-        <Text style={{color: 'white',fontFamily:'Cloud', fontWeight:'bold', fontSize:'22pt', alignSelf: 'center', marginTop: '-4%'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text>
+        <View style={{flex:1, padding: 40,backgroundColor:'black', height: '90%'}}>
+        <Image source={this.state.enlargedImage.uri} style={{height: '80%', resizeMode:'contain'}}></Image>
+        <Text style={{color: 'white',fontFamily:'Cloud', fontWeight:'bold', fontSize:'22pt', alignSelf: 'center', marginTop: '4%', textAlign:'center'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text>
         <Text style={{color: 'white',fontFamily:'CloudLight', fontSize:'15pt', alignSelf: 'center', marginBottom: '4%'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text>
 
         <Pressable
@@ -779,7 +780,7 @@ modalButtonOpen: {
 
   </View>
 
-  <View style={{width: '90%', height: '130%', }}>
+  <View style={{width: '90%', height: '160%', }}>
 
   <Image style={{height:"110%", width: '92%', marginTop: '17%', marginLeft:'10%',resizeMode:'contain'}} source={require('./src/assets/Triple Circle Widget new.png')}></Image>
 </View>
@@ -938,7 +939,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
      </View>
        </ImageBackground>    
     </View>
-    <View nativeID='accomplishments' style={[Dimensions.width > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+    <View nativeID='accomplishments' style={[SCREEN_WIDTH > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
       
     <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
     }}>
@@ -966,15 +967,36 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
           icon = {timelineIcon}
           separator={false}
           timeStyle={{textAlign: 'center', backgroundColor:'#540675', color:'white', padding:5, borderRadius:13}}
-          descriptionStyle={{fontSize: 10, color:'#540675',backgroundColor:'white',paddingHorizontal:'3px',borderRadius:'10px', alignSelf: 'flex-start', fontWeight: 900}}
-          titleStyle={{color:'white', backgroundColor:'#540675', borderRadius:'10px', alignSelf: 'flex-start', paddingHorizontal: '3px'}}
+          descriptionStyle={{fontSize: 10, color:'black',backgroundColor:'white',paddingHorizontal:'3px',borderRadius:'10px', alignSelf: 'flex-start', fontWeight: 900}}
+          titleStyle={{color:'white', backgroundColor:'black', borderRadius:'10px', alignSelf: 'flex-start', paddingHorizontal: '3px'}}
           options={{
-            style:{paddingTop:5, alignSelf: 'center',  marginLeft: '3%', marginTop: '0%'}
+            style:{paddingTop:5, alignSelf: 'center',  marginLeft: '3%', marginTop: '30%', height: '70%'}
           }}
         />
         {/* </View> */}
                </ImageBackground>   
 
+    </View>
+    <View nativeID='accomplishments' style={[SCREEN_WIDTH <= 800 ?{width: '90%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+    <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', textAlign:'center'}}>Sandra Dee's Journey</Text>
+    <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>A Timeline of How She Became the Comedian She Is Today!</Text>
+
+    <Timeline
+          data={this.data}
+          circleSize={30}
+          circleColor='gold'
+          lineColor='rgb(45,156,219)'
+          timeContainerStyle={{minWidth:52, marginTop: -5}}
+          innerCircle={'icon'}
+          icon = {timelineIcon}
+          separator={false}
+          timeStyle={{textAlign: 'center', backgroundColor:'#f87b06', color:'white', padding:5, borderRadius:13}}
+          descriptionStyle={{color:'gray'}}
+          titleStyle={{color:'white'}}
+          options={{
+            style:{paddingTop:5}
+          }}
+        />
     </View>
     <View nativeID='photos' style={[!this.state.eventsViewMobile? {flex: 0.27, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}:{flex: 0.13, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'5%'}}>PHOTOS</Text>
