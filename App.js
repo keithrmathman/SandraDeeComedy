@@ -642,7 +642,7 @@ modalButtonOpen: {
   const image = { uri: "https://reactjs.org/logo-og.png" };
   const eventsImage = require('./src/assets/Upcoming Events BG.png');
 
-  const leftBookingImage = { uri: require('./src/assets/ImageSlideshow/One of Her Favorite Clubs to Peform At_4.jpeg') };
+  const leftBookingImage = { uri: require('./src/assets/ImageSlideshow/One of Her Favorite Clubs to Peform At_4.jpg') };
   const topImage = { uri: 'https://cdn.shopify.com/s/files/1/0088/8887/7156/files/DSC00620_2_1296x.jpg?v=1629077379'};
   const responsive = {
     superLargeDesktop: {
