@@ -23,6 +23,17 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SCREEN_WIDTH * 0.9);
 const SLIDER_1_FIRST_ITEM = 0
 const picsumImages = new Array(11).fill("http://placeimg.com/640/360/any");
+const videoList = [
+  'https://www.youtube.com/watch?v=yRtzWn_5zko',
+  'https://www.youtube.com/watch?v=WeCUgAxfJOM',
+  'https://www.youtube.com/watch?v=lYj92o7vv5k',
+  //'https://www.youtube.com/shorts/9sozCuT7LcE',
+  'https://www.youtube.com/watch?v=IESeVWDnsM4',
+  'https://www.youtube.com/watch?v=bxfZxcqExro&feature=youtu.be',
+  'https://www.youtube.com/watch?v=Im_k_hSK_Xs&feature=youtu.be'
+
+
+]
 const numColumns = 3;
 const numVideoColumns = 2;
 const timelineIcon = require('./src/assets/microphone icon.png')
@@ -62,10 +73,11 @@ const VIDEOS_VIEW_SIZE_CONSTRAINT_THRESHOLD = 425
 const BIO_TEXT_THRESHOLD  =1200
 
 class App extends Component {
+
   constructor(props) {
 
     super(props);
-
+    
     this.data = [
       {time: '09/21/19',icon: timelineIcon,  title: 'First Comedy Show', description: 'Sandra Dee participated at her first comedy premiere.'},
       {time: '10/31/19', icon: timelineIcon,title: 'Won First Local Contest', description: 'Won "Best Comic In Houston" at the Secret Group Local Contest'},
@@ -76,9 +88,19 @@ class App extends Component {
     this._renderItem = this._renderItem.bind(this)
     this.enlargeImg = this.enlargeImg.bind(this)
     this.renderImage = this.renderImage.bind(this)
+    this.createPhotoGallery = this.createPhotoGallery.bind(this)
+
   }
   
+   importAll(r) {
+    let images = {};
+     r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images
+   }
+
+   
   componentDidMount() {
+    this.createPhotoGallery()
     this.renderEventsView()
     this.renderBioView()
     this.renderVideosView()
@@ -90,8 +112,9 @@ class App extends Component {
     }
 
   }
-
   state = {
+    imageList: this.importAll(require.context('./src/assets/ImageSlideshow', false, /\.(png|jpe?g|svg)$/)),
+    photoGallery: [],
     enlargedImage: {},
     loading: false,
     bioLT550: false,
@@ -156,13 +179,30 @@ class App extends Component {
   ]
 
   };
+  createPhotoGallery=() =>{
+    let imageList = this.state.imageList
+    let imageListTemp = []
+    let imageObj = {}
+    Object.keys(this.state.imageList).map(function(key) {
+      imageObj["title"] = key
+      imageObj["url"] = imageList[key]
+      imageListTemp.push(imageObj)
+      imageObj = {}
+  });
+  this.setState ({
+    photoGallery: imageListTemp
+  })
+  console.log(this.state.photoGallery)
+  
 
+   return imageListTemp
+   }
   enlargeImg=(image)=>{
     console.log("here", image)
     this.setState(state => ({
      lightboxIsOpen: !state.lightboxIsOpen,
      selectedImage: {author: "Sandra Dee", index: image},
-     enlargedImage: {uri: image}
+     enlargedImage: {uri: image.url, title: image.title}
    }));
   return 
    }
@@ -473,16 +513,20 @@ modalButtonOpen: {
 
   
    //Renders Image for flatlist
-    renderImage({ item }) {
-      console.log("value of this: " + this)
+    renderImage({item} ) {
+      console.info(item)
     return (
       <TouchableOpacity style={{paddingHorizontal:'10px', paddingVertical:'10px', flex: 1 / numColumns}} onPress={() => {
         this.enlargeImg(item)}}>
       <Image
-        source={{ uri: item }}
+        source={{ uri: item.url }}
         style={{aspectRatio: 1  }}
       /></TouchableOpacity>
     );
+  }
+//Populates the photo gallery with images in the local directory
+  populatePhotoGallery(folderDir){
+
   }
   //Determines if screen width is LT events view screen size threshold value
   renderEventsView(){
@@ -540,10 +584,10 @@ modalButtonOpen: {
 
     //Renders Image for flatlist
     renderVideo({ item }) {
-      console.log("value of this: " + this)
+      console.log("value of this: " + item)
     return (
       <View id="thumbnail" style={{resizeMode:'contain', paddingHorizontal:'10px',  borderColor: 'purple' , aspectRatio: 1, flex: 1 / numVideoColumns}}>
-      <Thumbnail style={{paddingVertical: '50%'}} iconStyle={{color:'white', width: SCREEN_WIDTH * 0.05, height: SCREEN_WIDTH * 0.05, justifyContent:'center', alignSelf:'center' }} url="https://www.youtube.com/watch?v=jbYnIw7kqhk" />
+      <Thumbnail style={{paddingVertical: '50%'}} iconStyle={{color:'white', width: SCREEN_WIDTH * 0.05, height: SCREEN_WIDTH * 0.05, justifyContent:'center', alignSelf:'center' }} url={item} />
       </View>
     );
   }
@@ -743,8 +787,8 @@ modalButtonOpen: {
          
         <View style={{flex:1, padding: 40,backgroundColor:'black', height: '90%'}}>
         <Image source={this.state.enlargedImage.uri} style={{height: '80%', resizeMode:'contain'}}></Image>
-        <Text style={{color: 'white',fontFamily:'Cloud', fontWeight:'bold', fontSize:'22pt', alignSelf: 'center', marginTop: '4%', textAlign:'center'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text>
-        <Text style={{color: 'white',fontFamily:'CloudLight', fontSize:'15pt', alignSelf: 'center', marginBottom: '4%'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text>
+        <Text style={{color: 'white',fontFamily:'Cloud', fontWeight:'bold', fontSize:'22pt', alignSelf: 'center', marginTop: '4%', textAlign:'center'}}>{this.state.enlargedImage.title}</Text>
+        {/* <Text style={{color: 'white',fontFamily:'CloudLight', fontSize:'15pt', alignSelf: 'center', marginBottom: '4%'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text> */}
 
         <Pressable
               style={[this.styles.modalButton, this.styles.modalButtonOpen]}
@@ -798,7 +842,7 @@ modalButtonOpen: {
 
     <View style={[this.styles.titleContainer, {flex:0.9}]}>
   <View style = {[this.styles.listContainer, {flex:0.9}]}>
-  <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/C1hV-sVGiEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yRtzWn_5zko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </View>
   </View>
     </View>
@@ -1000,14 +1044,14 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
     </View>
     <View nativeID='photos' style={[!this.state.eventsViewMobile? {flex: 0.27, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}:{flex: 0.13, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'5%'}}>PHOTOS</Text>
-    <FlatList data={picsumImages} renderItem={this.renderImage} numColumns={numColumns} />;
+    <FlatList data={this.state.photoGallery} renderItem={this.renderImage} numColumns={numColumns} />;
    
 </View>
 
 <View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.40, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
 <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center', justifyContent:'center'}}><Text style={[!this.state.videosLT425? {fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}: {fontFamily:'Amithen', color:'white', fontSize: '35pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}]}>VIDEOS</Text>
 <Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}}></Image></View>
-    <FlatList data={picsumImages} renderItem={this.renderVideo} numColumns={numVideoColumns} />;
+    <FlatList data={videoList} renderItem={this.renderVideo} numColumns={numVideoColumns} />;
 
   {/* </View>
 </View> */}
