@@ -725,7 +725,7 @@ modalButtonOpen: {
     </a>
     </View>
     <View style={{width: '10%', height:'50%', marginLeft: '4%', alignItems: 'flex-start',     alignSelf: 'center'}} >
-    <a href="https://www.youtube.com/@TheSandraDee/featured" style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
+    <a href="https://www.instagram.com/sandradee100/?hl=en" style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
 
       <Image source={{uri:'https://billburr.com/wp-content/uploads/2018/11/instagram-icon.png'}} style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
 
