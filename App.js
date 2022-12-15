@@ -184,7 +184,7 @@ class App extends Component {
     let imageListTemp = []
     let imageObj = {}
     Object.keys(this.state.imageList).map(function(key) {
-      imageObj["title"] = key
+      imageObj["title"] = key.replace(/[_][0-9]+/g, "").replace(/.[^.]+$/g, "")
       imageObj["url"] = imageList[key]
       imageListTemp.push(imageObj)
       imageObj = {}
@@ -481,7 +481,7 @@ modalButton: {
   elevation: 2
 },
 modalButtonOpen: {
-  backgroundColor: "#F194FF",
+  backgroundColor: "#9542f5",
 },
   flexPanel: {
     borderRadius:10, 
@@ -642,7 +642,7 @@ modalButtonOpen: {
   const image = { uri: "https://reactjs.org/logo-og.png" };
   const eventsImage = require('./src/assets/Upcoming Events BG.png');
 
-  const leftBookingImage = { uri: 'https://source.unsplash.com/1024x768/?girl' };
+  const leftBookingImage = { uri: require('./src/assets/ImageSlideshow/One of Her Favorite Clubs to Peform At_4.jpeg') };
   const topImage = { uri: 'https://cdn.shopify.com/s/files/1/0088/8887/7156/files/DSC00620_2_1296x.jpg?v=1629077379'};
   const responsive = {
     superLargeDesktop: {
@@ -711,24 +711,34 @@ modalButtonOpen: {
     </View>
    <View style={{width: '30%', height:'100%', flexDirection:'row', marginLeft:'20%', alignSelf:'row-reverse'}}>
     <View style={{width: '10%', height:'50%', marginLeft: '4%', alignItems: 'flex-start',     alignSelf: 'center'}} >
-      <Image source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}} style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
-
+    <a href="https://www.youtube.com/@TheSandraDee/featured" style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
+    <Image source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}} style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
     </Image>
+    </a>
     </View>
     <View style={{width: '10%', height:'50%', marginLeft: '4%', alignItems: 'flex-start',     alignSelf: 'center'}} >
+    <a href="https://twitter.com/deecomedian?lang=en" style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
+
       <Image source={{uri:'https://billburr.com/wp-content/uploads/2018/11/twitter-icon.png'}} style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
 
     </Image>
+    </a>
     </View>
     <View style={{width: '10%', height:'50%', marginLeft: '4%', alignItems: 'flex-start',     alignSelf: 'center'}} >
+    <a href="https://www.youtube.com/@TheSandraDee/featured" style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
+
       <Image source={{uri:'https://billburr.com/wp-content/uploads/2018/11/instagram-icon.png'}} style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
 
     </Image>
+    </a>
     </View>
     <View style={{width: '10%', height:'50%', marginLeft: '4%', alignItems: 'flex-start',     alignSelf: 'center'}} >
+    <a href="https://www.facebook.com/sandra.dee.58726823" style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
+
       <Image source={{uri:'https://billburr.com/wp-content/uploads/2018/11/facebook-icon.png'}} style={{justifyContent:'center', resizeMode:'contain', width: '100%', height:'100%'}}>
 
     </Image>
+    </a>
     </View>
     </View>
     </ScrollView>
@@ -786,8 +796,9 @@ modalButtonOpen: {
         }}>
          
         <View style={{flex:1, padding: 40,backgroundColor:'black', height: '90%'}}>
-        <Image source={this.state.enlargedImage.uri} style={{height: '80%', resizeMode:'contain'}}></Image>
-        <Text style={{color: 'white',fontFamily:'Cloud', fontWeight:'bold', fontSize:'22pt', alignSelf: 'center', marginTop: '4%', textAlign:'center'}}>{this.state.enlargedImage.title}</Text>
+        <Text style={{color: 'white',fontFamily:'Cloud', fontWeight:'bold', fontSize:'22pt', marginTop:'2%', marginBottom: '1%', alignSelf: 'center', textAlign:'center'}}>{this.state.enlargedImage.title}</Text>
+
+        <Image source={this.state.enlargedImage.uri} style={{height: '80%', resizeMode:'contain', marginBottom: '2%'}}></Image>
         {/* <Text style={{color: 'white',fontFamily:'CloudLight', fontSize:'15pt', alignSelf: 'center', marginBottom: '4%'}}>SANDRA DEE ON STAGE WITH CLIFF HUX</Text> */}
 
         <Pressable
@@ -1099,7 +1110,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
     />
     </View>
     <Pressable
-              style={[this.styles.modalButton, this.styles.modalButtonOpen, {backgroundColor: '#34ebc3', width: '70%', alignSelf: 'center' }]}
+              style={[this.styles.modalButton, this.styles.modalButtonOpen, {backgroundColor: '#9542f5', width: '70%', alignSelf: 'center' }]}
             ><Text style={{ color: "white",
             fontWeight: "bold",
             textAlign: "center"}}>Send Email</Text></Pressable>
