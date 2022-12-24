@@ -10,7 +10,7 @@ import React, {Component, useState} from 'react';
 import SliderEntry from './src/components/SliderEntry';
 import * as Font from "expo-font";
 import Apploading from "expo-app-loading";
-import {Dimensions, ImageBackground, StyleSheet, Text, Image, View, Pressable, FlatList, ScrollView,TouchableOpacity, Row, Modal, TextInput, WebView} from 'react-native';
+import {Dimensions, ImageBackground, StyleSheet, Text, Image, View, Pressable, FlatList, ScrollView,TouchableOpacity, Row, Modal, TextInput, Button} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { Thumbnail } from 'react-native-thumbnail-video';
 import {Link, Element} from 'react-scroll'
@@ -98,7 +98,20 @@ class App extends Component {
     return images
    }
 
-   
+  scrollToFunc(id){
+    var element = document.getElementById(id);
+    var bodyRect = document.body.getBoundingClientRect();
+    var elemRect = element.getBoundingClientRect();
+    console.log(elemRect, bodyRect)
+
+
+
+    window.scrollTo({
+      top: elemRect.top,
+      left:  bodyRect.left,
+      behavior: 'smooth'
+    });
+  }
   componentDidMount() {
     this.createPhotoGallery()
     this.renderEventsView()
@@ -226,7 +239,7 @@ class App extends Component {
     backgroundColor: 'black',
     alignItems: 'center',
    marginTop: '0%',
-  //  marginBottom:'15%',
+    marginBottom:'5%',
    alignContent: 'center',
    textAlign:'center',
   },
@@ -733,32 +746,34 @@ sendPromise.then(
   horizontal={true}
   scrollEnabled={true}>
       <View style={   this.styles.flexPanel} >
-      <Link  activeClass="active" to='events' offset={-100}>
+      <Link style={{backgroundColor:'transparent'}} onSetActive={() => this.scrollToFunc("events")}  >
+        <a onClick={() => this.scrollToFunc("events")}>
       <Text style={this.styles.text}>Upcoming Events</Text>
+      </a>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
-      <Link  activeClass="active" to= 'bio' offset={-100}>
+      <Link  style={{backgroundColor:'transparent'}} onSetActive={() => this.scrollToFunc()} activeClass="active" to= 'bio' offset={-100}>
       <Text style={this.styles.text}>BIO</Text>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
-      <Link activeClass="active" to='accomplishments' offset={-100} >
+      <Link style={{backgroundColor:'transparent'}} onSetActive={() =>this.scrollToFunc()} activeClass="active" to='accomplishments' offset={-100} >
       <Text style={this.styles.text}>Acheivements</Text>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
-      <Link  activeClass="active" to='photos' offset={-100}>
+      <Link  style={{backgroundColor:'transparent'}} onSetActive={() =>this.scrollToFunc()} activeClass="active" to='photos' offset={-100}>
       <Text style={this.styles.text}>Photos</Text>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
-      <Link  activeClass="active" to='videos' offset={-100}>
+      <Link  style={{backgroundColor:'transparent'}} onSetActive={() =>this.scrollToFunc()} activeClass="active" to='videos' offset={-100}>
       <Text style={this.styles.text}>Videos</Text>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
-      <Link  activeClass="active" to='contact' offset={-100}>
+      <Link  style={{backgroundColor:'transparent'}} onSetActive={() =>this.scrollToFunc()} activeClass="active" to='contact' offset={-100}>
       <Text style={this.styles.text}>Contact</Text>
     </Link>
     </View>
@@ -911,7 +926,7 @@ sendPromise.then(
   </View>
     </View>
 
-     <View  nativeID='events' style={[!this.state.eventsViewMobile ? this.styles.eventsContainer: {flex:0, height:0, overflow:'hidden'}]}>
+     <View  id='events' style={[!this.state.eventsViewMobile ? this.styles.eventsContainer: {flex:0, height:0, overflow:'hidden'}]}>
       
      <View style={this.styles.centerItem}>
 
@@ -941,7 +956,7 @@ sendPromise.then(
  
 
       </View>  
-      <View  nativeID='eventsAlt' style={[this.state.eventsViewMobile? this.styles.eventsContainer2: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+      <View  id='events' style={[this.state.eventsViewMobile? this.styles.eventsContainer2: {flex:0.0, height: 0,  overflow:'hidden' }]}>
       <View style={this.styles.titleContainer}>
   <Text style={{fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '1%'}}>UPCOMING EVENTS</Text>
   <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>Check out one of her upcoming shows!</Text>
@@ -973,11 +988,11 @@ position:'relative'
       </View> 
      
      
-      <View nativeID='bio' style={[this.state.bioLT550 ?{ width: '98%',  alignSelf:'center', backgroundColor: 'transparent', paddingBottom: 20,   marginTop: '2%', marginBottom: '10%',resizeMode: 'contain' }: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+      <View  style={[this.state.bioLT550 ?{ width: '98%',  alignSelf:'center', backgroundColor: 'transparent', paddingBottom: 20,   marginTop: '2%', marginBottom: '10%',resizeMode: 'contain' }: {flex:0.0, height: 0,  overflow:'hidden' }]}>
 
 
     <View  style={this.styles.bioItem}>
-     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center'}}>BIO</Text>
+     <Text nativeID='bio' style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center'}}>BIO</Text>
      <View style={this.styles.BioTextAlt}>
        <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'} }>
        K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
@@ -1010,10 +1025,10 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
 </View>
     <View  style={[!this.state.bioLT550 ?{width: '98%',  alignSelf:'center', backgroundColor: 'transparent', paddingBottom: 20,   marginTop: '25%',resizeMode: 'contain' }: {flex:0.0, height: 0,  overflow:'hidden' }]}>
 
-    <ImageBackground nativeID='bio' source={require('./src/assets/Parallax Background.png')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', borderTopWidth: '3px'
+    <ImageBackground  source={require('./src/assets/Parallax Background.png')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', borderTopWidth: '3px'
     }}>
     <View  style={this.styles.bioItem}>
-     <Text style={{fontFamily:'Amithen', color:'white', fontSize: '65pt', alignSelf:'center'}}>BIO</Text>
+     <Text nativeID='bio' style={{fontFamily:'Amithen', color:'white', fontSize: '65pt', alignSelf:'center'}}>BIO</Text>
      <View style={{width:'50%', height:'90%', marginLeft:'5%', marginVertical:'6%'}}>
 
       
