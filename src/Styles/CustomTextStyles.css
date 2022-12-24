@@ -1,7 +1,13 @@
+@font-face {
+    font-family: "Haettenschweiler";
+    src: url("../assets/fonts/Haettenschweiler.ttf");
+    }
+
 @media screen and (max-width: 425px){
     .kingdom {
         color: white;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-family: Impact, "Haettenschweiler", 'Arial Bold', sans-serif;
+        font-weight: 'bold';
         font-size: 3rem;
         line-height: 1;
         text-align: center;
@@ -38,7 +44,7 @@
 
 .kingdom {
     color: white;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, "Haettenschweiler", 'Arial Narrow Bold', sans-serif;
     font-size: 4rem;
     line-height: 1;
     text-align: center;

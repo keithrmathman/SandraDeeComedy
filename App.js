@@ -317,7 +317,7 @@ alignSelf:'center'
   },
   backgroundPhoto:{
     //backgroundColor: '#430C41',
-    flex: 0.2,
+    flex: 0.14,
   },
   headerText:{
     fontSize: '30pt', 
@@ -630,6 +630,59 @@ modalButtonOpen: {
     let {width, height} = event.nativeEvent.layout
     this.setState({headerDimensions: {width, height}})
   }
+
+  sendEmail(email, messageText){
+    // Load the AWS SDK for Node.js
+var AWS = require('aws-sdk');
+// Set the region 
+AWS.config.update({region: 'REGION'});
+
+// Create sendEmail params 
+var params = {
+  Destination: { /* required */
+    CcAddresses: [
+      /* more items */
+    ],
+    ToAddresses: [
+      'sandyrobinson0@yahoo.com',
+      /* more items */
+    ]
+  },
+  Message: { /* required */
+    Body: { /* required */
+      Html: {
+       Charset: "UTF-8",
+       Data: "HTML_FORMAT_BODY"
+      },
+      Text: {
+       Charset: "UTF-8",
+       Data: "TEXT_FORMAT_BODY"
+      }
+     },
+     Subject: {
+      Charset: 'UTF-8',
+      Data: 'Message From: ' + email
+     }
+    },
+  Source: 'SENDER_EMAIL_ADDRESS', /* required */
+  ReplyToAddresses: [
+     'EMAIL_ADDRESS',
+    /* more items */
+  ],
+};
+
+// Create the promise and SES service object
+var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
+
+// Handle promise's fulfilled/rejected states
+sendPromise.then(
+  function(data) {
+    console.log(data.MessageId);
+  }).catch(
+    function(err) {
+    console.error(err, err.stack);
+  });
+  }
  render () {
   const { slider1ActiveSlide } = this.state;
   const images= [
@@ -837,7 +890,7 @@ modalButtonOpen: {
 
   <View style={{width: '90%', height: '160%', }}>
 
-  <Image style={{height:"110%", width: '92%', marginTop: '17%', marginLeft:'10%',resizeMode:'contain'}} source={require('./src/assets/Triple Circle Widget new.png')}></Image>
+  <Image style={{height:"110%", width: '92%', marginTop: '8%', marginLeft:'10%',resizeMode:'contain'}} source={require('./src/assets/Triple Circle Widget new.png')}></Image>
 </View>
 
 
@@ -994,7 +1047,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
      </View>
        </ImageBackground>    
     </View>
-    <View nativeID='accomplishments' style={[SCREEN_WIDTH > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+    <View nativeID='accomplishments' style={[SCREEN_WIDTH > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 150, flex: 0.1}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
       
     <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
     }}>
@@ -1059,7 +1112,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
    
 </View>
 
-<View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.40, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
+<View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.19, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
 <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center', justifyContent:'center'}}><Text style={[!this.state.videosLT425? {fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}: {fontFamily:'Amithen', color:'white', fontSize: '35pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}]}>VIDEOS</Text>
 <Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}}></Image></View>
     <FlatList data={videoList} renderItem={this.renderVideo} numColumns={numVideoColumns} />;
