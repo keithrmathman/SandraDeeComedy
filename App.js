@@ -890,7 +890,7 @@ sendPromise.then(
 
   <View style={{width: '90%', height: '160%', }}>
 
-  <Image style={{height:"110%", width: '92%', marginTop: '13%', marginLeft:'10%',resizeMode:'contain'}} source={require('./src/assets/Triple Circle Widget new.png')}></Image>
+  <Image style={{height:"110%", width: '92%', marginTop: '8%', marginLeft:'10%',resizeMode:'contain'}} source={require('./src/assets/Triple Circle Widget new.png')}></Image>
 </View>
 
 
