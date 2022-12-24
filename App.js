@@ -317,7 +317,7 @@ alignSelf:'center'
   },
   backgroundPhoto:{
     //backgroundColor: '#430C41',
-    flex: 0.2,
+    flex: 0.14,
   },
   headerText:{
     fontSize: '30pt', 
@@ -1047,7 +1047,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
      </View>
        </ImageBackground>    
     </View>
-    <View nativeID='accomplishments' style={[SCREEN_WIDTH > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 50}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
+    <View nativeID='accomplishments' style={[SCREEN_WIDTH > 800 ?{width: '100%', marginTop:'10%', alignSelf:'center',  backgroundColor: 'transparent', paddingBottom: 150, flex: 0.1}: {flex:0.0, height: 0,  overflow:'hidden' }]}>
       
     <ImageBackground nativeID='bio' source={require('./src/assets/timeline photo.jpg')} resizeMode='contain' style={{resizeMode: 'contain',backgroundColor: 'transparent', alignSelf: 'center', marginTop: '7%', marginRight:'0%', height:'100%', width: '100%', borderTopWidth: '3px'
     }}>
@@ -1112,7 +1112,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
    
 </View>
 
-<View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.40, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
+<View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.19, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
 <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center', justifyContent:'center'}}><Text style={[!this.state.videosLT425? {fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}: {fontFamily:'Amithen', color:'white', fontSize: '35pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}]}>VIDEOS</Text>
 <Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}}></Image></View>
     <FlatList data={videoList} renderItem={this.renderVideo} numColumns={numVideoColumns} />;
