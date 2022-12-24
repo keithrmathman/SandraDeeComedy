@@ -1115,7 +1115,7 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
 <View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.19, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
 <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center', justifyContent:'center'}}><Text style={[!this.state.videosLT425? {fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}: {fontFamily:'Amithen', color:'white', fontSize: '35pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}]}>VIDEOS</Text>
 <Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}}></Image></View>
-    <FlatList data={videoList} renderItem={this.renderVideo} numColumns={numVideoColumns} />;
+    <FlatList data={videoList} renderItem={this.renderVideo} numColumns={numVideoColumns} />
 
   {/* </View>
 </View> */}

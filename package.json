@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.0",
+    "aws-sdk": "^2.1282.0",
     "expo": "~46.0.16",
     "expo-app-loading": "^2.1.0",
     "expo-linear-gradient": "^11.4.0",
