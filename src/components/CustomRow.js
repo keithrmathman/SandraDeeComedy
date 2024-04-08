@@ -1,4 +1,3 @@
-
 import React,  { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import * as Font from "expo-font";
