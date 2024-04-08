@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     title: {
-        fontSize: 45,
+        fontSize: '1em',
         opacity: 1,
         color: 'white',
         paddingRight: '1%',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
     },
     TransitionWord: {
-      fontSize: 32,
+      fontSize: '1em',
       opacity: 1,
       color: 'white',
       paddingRight: '1%',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
   },
     headline: {
-        fontSize: 40,
+        fontSize: '1em',
         opacity: 1,
         color: 'white',
         paddingRight: '1%',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 
     },
     location: {
-        fontSize: 20,
+        fontSize: '0.8em',
         fontFamily: 'Bondie',
         color: 'gray',
         fontWeight: 'bold', 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
     },
     description: {
-        fontSize: 25,
+        fontSize: '0.8em',
         fontFamily: 'Bondie',
         color: 'white',
         
