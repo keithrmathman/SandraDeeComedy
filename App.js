@@ -734,7 +734,7 @@ sendPromise.then(
   scrollEnabled={true}>
       <View style={   this.styles.flexPanel} >
       <Link  activeClass="active" to='events' offset={-100}>
-      <Text style={this.styles.text}>Book a show</Text>
+      <Text style={this.styles.text}>Capabilities of Sandra Dee</Text>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
@@ -1089,7 +1089,7 @@ Sandra is a comedian actress, writer, and host.
 
 <View nativeID='videos' style={[ !this.state.eventsViewMobile? {flex: 0.19, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'} : {flex: 0.18, marginTop:'10%',paddingBottom: '3%', backgroundColor: 'transparent', width: '90%',  alignSelf:'center'}]}>
 <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center', justifyContent:'center'}}><Text style={[!this.state.videosLT425? {fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}: {fontFamily:'Amithen', color:'white', fontSize: '35pt', alignSelf:'center', marginTop: '5%', marginBottom:'2%'}]}>VIDEOS</Text>
-<Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://billburr.com/wp-content/themes/bill-burr/images/youtube-icon2.png'}}></Image></View>
+<Text style ={[!this.state.videosLT425? {fontFamily:'juriFrontageCondensedOutline', fontSize:'16pt', color:'white'}:{fontFamily:'juriFrontageCondensedOutline', fontSize:'10pt', color:'white'}]}>{'    '}WATCH MORE ON </Text><Image style={{ resizeMode: 'contain', height:'20%', width: '4%'}} source={{uri:'https://www.shareicon.net/download/2015/09/19/103425_video.svg'}}></Image></View>
     <FlatList data={videoList} renderItem={this.renderVideo} numColumns={numVideoColumns} />
 
   {/* </View>
@@ -1121,27 +1121,19 @@ Sandra is a comedian actress, writer, and host.
      </dl>
      </React.Fragment> */}
      <View style={{height:'90%'}}>
-     <Text style={{fontFamily:'cloudLight', fontSize: 18, color: 'white', marginTop:'20%', alignSelf: 'center'}}>Enter Your Email Address here:</Text>
-      <TextInput
-      editable
-      maxLength={40}
-      style={{padding: 10,backgroundColor:'white', alignSelf:'center', width: '90%', borderRadius: '10px', borderColor:'gray'}}
-    />
+     <Text style={{fontFamily:'cloudLight', fontSize: 18, color: 'white', marginTop:'20%', alignSelf: 'center'}}>Email Address:</Text>
+      <Text
+      
+      style={{padding: 10, color: 'white', alignSelf:'center', width: '90%', borderRadius: '10px', borderColor:'gray', textAlign: 'center'}}
+    ><b>sandradee@hilarioussandradee.com</b></Text>
     <View style={{marginBottom:'-6%'}}></View>
-       <Text style={{fontFamily:'cloudLight', fontSize: 18, color: 'white', marginTop:'20%', alignSelf: 'center'}}>Type Your Message here:</Text>
-      <TextInput
-      editable
-      multiline
-      numberOfLines={12}
-      maxLength={1000}
-      style={{padding: 10,backgroundColor:'white', alignSelf:'center', width: '90%', borderRadius: '10px', marginBottom: 10}}
-    />
+       <Text style={{fontFamily:'cloudLight', fontSize: 18, color: 'white', marginTop:'20%', alignSelf: 'center'}}>Phone Number:</Text>
+      <Text
+  
+      style={{padding: 10,color:'white', alignSelf:'center', width: '90%', borderRadius: '10px', marginBottom: 10, textAlign: 'center'}}
+    ><b>(346)-473-7807</b></Text>
     </View>
-    <Pressable
-              style={[this.styles.modalButton, this.styles.modalButtonOpen, {backgroundColor: '#9542f5', width: '70%', alignSelf: 'center' }]}
-            ><Text style={{ color: "white",
-            fontWeight: "bold",
-            textAlign: "center"}}>Send Email</Text></Pressable>
+   
      </View>
      </View>
     </View>
