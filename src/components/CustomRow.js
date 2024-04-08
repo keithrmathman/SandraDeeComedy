@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     title: {
-        fontSize: 40,
+        fontSize: 70,
         opacity: 1,
         color: 'white',
         paddingRight: '1%',
@@ -26,19 +26,33 @@ const styles = StyleSheet.create({
         fontFamily: 'Bondie',
 
     },
+    TransitionWord: {
+      fontSize: 40,
+      opacity: 1,
+      color: 'white',
+      paddingRight: '1%',
+      fontWeight: 'bolder',
+      fontFamily: 'Bondie',
+      textDecorationLine: 'underline',
+
+  },
     headline: {
-        fontSize: 25,
+        fontSize: 45,
         opacity: 1,
         color: 'white',
         paddingRight: '1%',
         fontWeight: 'bolder',
         fontFamily: 'Bondie',
+        textDecorationLine: 'underline',
+
 
     },
     location: {
         fontSize: 20,
         fontFamily: 'Bondie',
         color: 'gray',
+        fontWeight: 'bold', 
+        color: 'white'
         
 
     },
@@ -111,6 +125,9 @@ console.log("in here.")
     {month} {year}
  </Text>
 
+</View>
+<View style={{justifyContent:'center', width:'10%'}}>
+  <Text style={[styles.TransitionWord, {marginRight: '0%'}]}>DOES...</Text>
 </View>
 <View style={styles.container2_text}>
  <Text style={styles.headline}>

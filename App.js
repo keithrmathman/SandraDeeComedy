@@ -133,43 +133,43 @@ class App extends Component {
     selectedImage: {},
     eventList: [{
       image_url: "https://source.unsplash.com/1024x768/?girl",
-      title: 'HOSTING THE "COMEDY FEST" at SECRET GROUP.',
-      description: "THE SECRET GROUP, HOUSTON, TX",
-      day: '18',
-      month: 'JANUARY',
-      year: '2022'
+      title: 'ADULT COMEDY SHOWS',
+      description: "Comedy shows that caters to the adult crowd.",
+      day: 'SANDRA DEE',
+      month: '',
+      year: ''
     },
     {
       image_url: "https://source.unsplash.com/1024x768/?girl",
-      title: "OPEN MIC STANDUP AT THE BAR! 9PM - 12AM",
-      description: "CARROS CLUB, HOUSTON, TX",
-      day: '28',
-      month: 'JANUARY',
-      year: '2022'
+      title: "KID-FRIENDLY COMEDY",
+      description: "Comedy for people of all ages to enjoy.",
+      day: '',
+      month: '',
+      year: ''
     },
     {
       image_url: "https://source.unsplash.com/1024x768/?girl",
-      title: '"BEST COMIC IN TEXAS" FINALS PREMIERE',
-      description: "JOKE JOINT, HOUSTON, TX",
-      day: '1',
-      month: 'FEBUARY',
-      year: '2022'
+      title: 'STANDUP COMEDY',
+      description: "Book her for a comedy show at a comedy club or bar.",
+      day: '',
+      month: '',
+      year: ''
     },
     {
       image_url: "https://source.unsplash.com/1024x768/?girl",
-      title: "OPEN MIC STAND UP",
-      description: "THE SECRET GROUP, HOUSTON, TX",
-      day: '22',
-      month: 'APRIL',
-      year: '2022'
+      title: "SKITS/MOVIES/ENTERTAINMENT",
+      description: "She acts as well. Bring her on for a role in your entertainment endeavor.",
+      day: '',
+      month: '',
+      year: ''
     },
     {
       image_url: "https://source.unsplash.com/1024x768/?girl",
-      title: 'PREMIERING IN THE "BEST BITCH TO DO IT!" FESTIVAL',
-      description: "10535 ALMEDA RD, HOUSTON, TX",
-      day: '18',
-      month: 'OCTOBER',
-      year: '2022'
+      title: 'PRIVATE PARTIES',
+      description: "Want to book her for a private party? Contact her now!",
+      day: '',
+      month: '',
+      year: ''
     }],
     images: [
       {author: "Sandra Dee", uri: "https://source.unsplash.com/1024x768/?nature", 'metadata': {"description": "Sandra dee at one with nature."} },
@@ -734,7 +734,7 @@ sendPromise.then(
   scrollEnabled={true}>
       <View style={   this.styles.flexPanel} >
       <Link  activeClass="active" to='events' offset={-100}>
-      <Text style={this.styles.text}>Upcoming Events</Text>
+      <Text style={this.styles.text}>Book a show</Text>
     </Link>
     </View>
     <View style={this.styles.flexPanel} >
@@ -926,10 +926,9 @@ sendPromise.then(
     }}>
   
   <View style={this.styles.titleContainer}>
-  <Text style={[this.state.screenSizeLT1200px? {fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '10%'}: {fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '65pt', alignSelf:'center', marginTop: '10%'}]}>UPCOMING EVENTS</Text>
-  <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>Check out one of her upcoming shows!</Text>
+  <Text style={[this.state.screenSizeLT1200px? {fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '10%'}: {fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '65pt', alignSelf:'center', marginTop: '10%'}]}>BOOK A SHOW WITH SANDRA DEE</Text>
 
-  <View style = {[this.styles.listContainer, {height:'40%', marginTop:'30%'}]}>
+  <View style = {[this.styles.listContainer, {height:'40%', marginTop:'10%'}]}>
         <CustomListview
           itemList={this.state.eventList}
         />
@@ -943,8 +942,7 @@ sendPromise.then(
       </View>  
       <View  nativeID='eventsAlt' style={[this.state.eventsViewMobile? this.styles.eventsContainer2: {flex:0.0, height: 0,  overflow:'hidden' }]}>
       <View style={this.styles.titleContainer}>
-  <Text style={{fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '1%'}}>UPCOMING EVENTS</Text>
-  <Text style={[this.styles.sectionSubTitle, {marginBottom:'10%'}]}>Check out one of her upcoming shows!</Text>
+  <Text style={{fontFamily:'juriFrontageCondensedOutline', color:'white', fontSize: '45pt', alignSelf:'center', marginTop: '1%'}}>BOOK A SHOW WITH SANDRA DEE</Text>
   </View>
   <View style={this.styles.centerItemLT600}>
 
@@ -980,29 +978,18 @@ position:'relative'
      <Text style={{fontFamily:'Amithen', color:'white', fontSize: '45pt', alignSelf:'center'}}>BIO</Text>
      <View style={this.styles.BioTextAlt}>
        <Text style={{fontFamily: 'Cloud', fontSize:'15px', color:'white'} }>
-       K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
+       <h2>Sandra Dee (a.k.a. Sandra Robinson)</h2>{"\n"}
 
-Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
-{"/n"}
-This fall, he stars in a new hilarious movie alongside Jon Heder (aka Napoleon Dynamite).
+      <h3>The Original D.O.G.
+(Dirty Ol’ Grandma)</h3>
+{"\n"}
 
-Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtube.com/KvonComedy as he wakes America Up w/ Laughter.
+She took Houston Comedy scene by storm beginning in February of 2017.
+A phenomenon on the stage. Sandra Dee brings high energy to the stage. She uses her age to bring humor and wisdom to all subjects including real life and politics. The “wow-factor” in Sandra Dee’s comedy as someone’s older auntie the audience is fully engaged, and ears and eyes are wide open waiting to hear what’s next from the “Mom’s Marley” comedy style of the Original D.O.G.  Of comedy can be raw and with an appeal to various audiences that tackles the events of our time with flare.
 
-... and be sure to check out his new book, "Once You Go Persian..." (full of funny stories & great unsolicited advice!)
+Sandra has one best of comedy festivals. She has also won best come in Houston in the mainstream and clean comedy sectors. She has appeared in a clip on America’s got talent,
 
-*Book K-von for ZOOM or LIVE comedy shows to make it a fun & unique experience through
-       
-       K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
-
-Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
-{"/n"}
-This fall, he stars in a new hilarious movie alongside Jon Heder (aka Napoleon Dynamite).
-
-Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtube.com/KvonComedy as he wakes America Up w/ Laughter.
-
-... and be sure to check out his new book, "Once You Go Persian..." (full of funny stories & great unsolicited advice!)
-
-*Book K-von for ZOOM or LIVE comedy shows to make it a fun & unique experience through
+Sandra is a comedian actress, writer, and host. 
        </Text>
        
        </View>
@@ -1018,29 +1005,17 @@ Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtu
 
       
        <Text style={[ this.state.screenSizeLT1200px ?{fontFamily: 'Cloud', fontSize:'15px', color:'white'} : {fontFamily: 'Cloud', fontSize:'25px', color:'white'}]}>
-       K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
+       <h2>Sandra Dee (a.k.a. Sandra Robinson)</h2>{"\n"}
 
-Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
-{"/n"}
-This fall, he stars in a new hilarious movie alongside Jon Heder (aka Napoleon Dynamite).
+<h3>The Original D.O.G.
+(Dirty Ol’ Grandma)</h3>
+{"\n"}
+She took Houston Comedy scene by storm beginning in February of 2017.
+A phenomenon on the stage. Sandra Dee brings high energy to the stage. She uses her age to bring humor and wisdom to all subjects including real life and politics. The “wow-factor” in Sandra Dee’s comedy as someone’s older auntie the audience is fully engaged, and ears and eyes are wide open waiting to hear what’s next from the “Mom’s Marley” comedy style of the Original D.O.G.  Of comedy can be raw and with an appeal to various audiences that tackles the events of our time with flare.
 
-Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtube.com/KvonComedy as he wakes America Up w/ Laughter.
+Sandra has one best of comedy festivals. She has also won best come in Houston in the mainstream and clean comedy sectors. She has appeared in a clip on America’s got talent,
 
-... and be sure to check out his new book, "Once You Go Persian..." (full of funny stories & great unsolicited advice!)
-
-*Book K-von for ZOOM or LIVE comedy shows to make it a fun & unique experience through
-       
-       K-von is the most famous Half-Persian comedian in the world. His style is versatile yet relatable with storytelling and high-energy performances about a variety of mainstream topics.
-
-Millions have seen his appearances on NETFLIX, NBC's ‘Last Comic Standing’, Dry Bar Comedy, and his popular TED Talk.
-{"/n"}
-This fall, he stars in a new hilarious movie alongside Jon Heder (aka Napoleon Dynamite).
-
-Catch K-von on tour, listen to his PODCAST, and watch his weekly videos on youtube.com/KvonComedy as he wakes America Up w/ Laughter.
-
-... and be sure to check out his new book, "Once You Go Persian..." (full of funny stories & great unsolicited advice!)
-
-*Book K-von for ZOOM or LIVE comedy shows to make it a fun & unique experience through
+Sandra is a comedian actress, writer, and host. 
        </Text>
        
        </View>
