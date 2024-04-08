@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     title: {
-        fontSize: 70,
+        fontSize: 45,
         opacity: 1,
         color: 'white',
         paddingRight: '1%',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
     },
     TransitionWord: {
-      fontSize: 40,
+      fontSize: 32,
       opacity: 1,
       color: 'white',
       paddingRight: '1%',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
   },
     headline: {
-        fontSize: 45,
+        fontSize: 40,
         opacity: 1,
         color: 'white',
         paddingRight: '1%',
@@ -118,16 +118,13 @@ console.log("in here.")
 {/* <Image source={{ uri: image_url }} style={styles.photo} /> */}
 <View style={styles.container1_text}>
  <Text style={[styles.title, {marginRight: '0%'}]}>
-    {day}
- </Text>
+    {day} 
+ </Text>&nbsp;&nbsp;<Text style={[styles.title, {marginRight: '0%', textDecorationLine: 'underline'}]}>{month} </Text>
  <Text style={styles.description}>
-    {month} {year}
  </Text>
 
 </View>
-<View style={{justifyContent:'center', width:'10%'}}>
-  <Text style={[styles.TransitionWord, {marginRight: '0%'}]}>DOES...</Text>
-</View>
+
 <View style={styles.container2_text}>
  <Text style={styles.headline}>
      {title}

@@ -136,7 +136,7 @@ class App extends Component {
       title: 'ADULT COMEDY SHOWS',
       description: "Comedy shows that caters to the adult crowd.",
       day: 'SANDRA DEE',
-      month: '',
+      month: 'DOES...',
       year: ''
     },
     {
@@ -250,9 +250,13 @@ width: '90%',
 alignSelf:'center'
   },
   listContainer: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
     marginTop: '2%',
     opacity: 1,
-    width: '100%',
+    width: '90%',
     flex: 1
   },
   itemContainer: {
@@ -1131,7 +1135,7 @@ Sandra is a comedian actress, writer, and host.
       <Text
   
       style={{padding: 10,color:'white', alignSelf:'center', width: '90%', borderRadius: '10px', marginBottom: 10, textAlign: 'center'}}
-    ><b>(346)-473-7807</b></Text>
+    ><b>(832)-466-9809</b></Text>
     </View>
    
      </View>
